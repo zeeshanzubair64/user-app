@@ -17,16 +17,10 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.2'  # ✅ Update this line
+          flutter-version: '3.22.0-beta.6'   # ✅ Dart 3.6.0 included
+          channel: 'beta'                    # ✅ Required for Dart 3.6+
 
       - name: Install Dependencies
         run: flutter pub get
 
       - name: Build APK
-        run: flutter build apk --release
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
